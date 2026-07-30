@@ -1,0 +1,49 @@
+{
+  "_notes": "Static reference data for the period-tracking module. These are commonly reported patterns from general research on the menstrual cycle, presented for education — not a diagnosis of any individual's experience, which can vary widely. Day ranges assume a typical ~28-day cycle and shift proportionally for longer/shorter cycles.",
+
+  "phases": [
+    {
+      "phase": "Menstrual",
+      "dayRange": "Days 1-5 (varies by individual)",
+      "hormoneNotes": "Estrogen and progesterone are at their lowest point, triggering the uterine lining to shed. FSH begins rising late in this phase to recruit the next batch of follicles.",
+      "moodEnergyNotes": "Lower energy and a more introspective or withdrawn mood are commonly reported, alongside cramping, fatigue, and sometimes headaches — often attributed to the hormone low point and prostaglandin release.",
+      "nutritionFocus": [
+        {"nutrient": "iron", "why": "replaces iron lost through menstrual bleeding", "sources": ["red meat", "spinach", "lentils", "pumpkin seeds"]},
+        {"nutrient": "magnesium", "why": "commonly suggested to help ease cramping", "sources": ["dark chocolate", "almonds", "leafy greens"]},
+        {"nutrient": "warming/anti-inflammatory foods", "why": "often reported to help with cramp discomfort", "sources": ["ginger tea", "turmeric", "warm soups"]}
+      ]
+    },
+    {
+      "phase": "Follicular",
+      "dayRange": "~Days 1-13 (overlaps with menstrual phase, extends to ovulation)",
+      "hormoneNotes": "Estrogen rises steadily as FSH stimulates follicle growth in the ovaries.",
+      "moodEnergyNotes": "Rising energy, improved mood, and sharper mental clarity/motivation are commonly reported as estrogen climbs.",
+      "nutritionFocus": [
+        {"nutrient": "lean protein", "why": "supports the higher activity/energy commonly felt in this phase", "sources": ["chicken", "fish", "eggs", "legumes"]},
+        {"nutrient": "fermented foods", "why": "supports gut health, which plays a role in estrogen metabolism", "sources": ["yogurt", "kimchi", "sauerkraut"]}
+      ]
+    },
+    {
+      "phase": "Ovulatory",
+      "dayRange": "~Day 14 (varies; the day itself and 2-3 days prior are the most fertile window)",
+      "hormoneNotes": "A surge in luteinizing hormone (LH) triggers the release of an egg; estrogen peaks just before this surge.",
+      "moodEnergyNotes": "Peak energy, sociability, and libido are commonly reported around this point in the cycle.",
+      "nutritionFocus": [
+        {"nutrient": "fiber (cruciferous vegetables)", "why": "supports clearing excess estrogen at its peak", "sources": ["broccoli", "cauliflower", "brussels sprouts"]},
+        {"nutrient": "antioxidants", "why": "supports the slightly higher metabolic rate around ovulation", "sources": ["berries", "citrus", "colorful vegetables"]}
+      ]
+    },
+    {
+      "phase": "Luteal",
+      "dayRange": "~Days 15-28 (from ovulation to the next period)",
+      "hormoneNotes": "Progesterone rises to prepare the uterine lining, then both progesterone and estrogen fall sharply in the final days if pregnancy doesn't occur — this drop is commonly linked to PMS symptoms.",
+      "moodEnergyNotes": "Energy often dips in the later part of this phase; irritability, low mood, food cravings, bloating, and breast tenderness (PMS) are commonly reported as hormone levels fall.",
+      "nutritionFocus": [
+        {"nutrient": "complex carbohydrates", "why": "commonly reported to help stabilize mood and cravings", "sources": ["whole grains", "oats", "sweet potato"]},
+        {"nutrient": "calcium", "why": "some research links adequate calcium intake to reduced PMS symptoms", "sources": ["dairy", "fortified plant milk", "leafy greens"]},
+        {"nutrient": "vitaminB6", "why": "commonly suggested to support mood regulation in this phase", "sources": ["bananas", "poultry", "chickpeas"]},
+        {"nutrient": "reduce caffeine/salt/sugar", "why": "often reported to worsen bloating and mood swings in this phase", "sources": ["swap for herbal tea, fresh fruit"]}
+      ]
+    }
+  ]
+}

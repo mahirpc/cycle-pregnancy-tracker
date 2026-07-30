@@ -1,0 +1,9 @@
+{
+  "name": "Cycle & Pregnancy Tracker",
+  "short_name": "Tracker",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f6fb",
+  "theme_color": "#6c63ff",
+  "icons": []
+}
