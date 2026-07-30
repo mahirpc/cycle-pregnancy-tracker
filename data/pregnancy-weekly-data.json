@@ -1,0 +1,98 @@
+{
+  "_notes": "Static reference data for the pregnancy tracking module. Educational information only, not medical advice. Milestone timing is approximate and varies by individual/pregnancy. Trimester-level hormone/mood/nutrition data is normalized (not repeated per week) to avoid duplication in the app's data layer — join on 'trimester'.",
+
+  "trimesters": [
+    {
+      "trimester": 1,
+      "weekRange": "1-13",
+      "hormoneNotes": "hCG rises rapidly (roughly doubling every 48-72 hours early on), peaking around weeks 8-11 then leveling off. Progesterone climbs steadily to maintain the uterine lining and relax smooth muscle. Estrogen rises steadily throughout.",
+      "moodPhysicalNotes": "Fatigue, nausea ('morning sickness'), breast tenderness, and heightened emotional sensitivity are commonly reported, often linked to the rapid hormonal shifts above. Symptoms typically ease as the trimester ends and hCG plateaus.",
+      "nutritionFocus": [
+        {"nutrient": "folate", "why": "critical for neural tube development in early weeks", "sources": ["leafy greens", "fortified cereal", "lentils", "citrus fruit"]},
+        {"nutrient": "vitaminB6", "why": "commonly suggested to help ease nausea", "sources": ["bananas", "poultry", "fortified grains"]},
+        {"nutrient": "hydration", "why": "supports rising blood volume and can ease fatigue/constipation", "sources": ["water", "herbal teas cleared by a provider"]}
+      ],
+      "generalTips": "Small, frequent meals and ginger are commonly reported to help with nausea. Avoid the 'avoidList' items from the first positive test onward."
+    },
+    {
+      "trimester": 2,
+      "weekRange": "14-27",
+      "hormoneNotes": "hCG plateaus. Progesterone and estrogen continue rising steadily, supporting placental growth. Relaxin increases, gradually loosening ligaments and joints.",
+      "moodPhysicalNotes": "Often described as the more comfortable stretch of pregnancy — energy commonly returns as nausea eases and mood may stabilize. Some report vivid dreams, skin/hair changes, and round-ligament pain as the uterus expands.",
+      "nutritionFocus": [
+        {"nutrient": "iron", "why": "supports the significant rise in blood volume", "sources": ["lean red meat", "beans", "fortified grains", "pair with vitamin C for absorption"]},
+        {"nutrient": "calcium", "why": "supports fetal bone development", "sources": ["dairy", "fortified plant milk", "leafy greens", "tofu"]},
+        {"nutrient": "protein", "why": "needs increase to support fetal growth", "sources": ["eggs", "poultry", "legumes", "greek yogurt"]}
+      ],
+      "generalTips": "This is typically when the anatomy scan (around week 20) happens and appetite often increases."
+    },
+    {
+      "trimester": 3,
+      "weekRange": "28-40",
+      "hormoneNotes": "Estrogen and progesterone reach their highest levels of pregnancy. Relaxin peaks, preparing the pelvis for birth. Oxytocin sensitivity and prolactin rise in preparation for labor and lactation.",
+      "moodPhysicalNotes": "Physical discomfort (back pain, disrupted sleep, Braxton Hicks contractions) is common. Many report heightened anxiety about labor alongside a 'nesting' instinct in the final weeks; mood can fluctuate with poor sleep and physical strain.",
+      "nutritionFocus": [
+        {"nutrient": "dha_omega3", "why": "supports rapid third-trimester brain development", "sources": ["low-mercury fatty fish (salmon, sardines)", "walnuts", "flaxseed", "algae-based supplements"]},
+        {"nutrient": "fiber", "why": "helps manage common third-trimester constipation", "sources": ["whole grains", "fruit", "vegetables"]},
+        {"nutrient": "continued_iron_calcium", "why": "demand stays elevated through the final stretch", "sources": ["see trimester 2 sources"]}
+      ],
+      "generalTips": "Total daily calorie needs are typically modestly higher in this trimester; the added calories should come from nutrient-dense food rather than empty calories."
+    }
+  ],
+
+  "avoidList": [
+    {"item": "Alcohol", "reason": "no amount established as safe during pregnancy"},
+    {"item": "Raw or undercooked meat, eggs, and fish (incl. sushi with raw fish)", "reason": "risk of foodborne illness (Salmonella, Listeria, Toxoplasma)"},
+    {"item": "Unpasteurized dairy and juice", "reason": "risk of Listeria"},
+    {"item": "Deli meats and hot dogs, unless heated until steaming", "reason": "risk of Listeria"},
+    {"item": "High-mercury fish (shark, swordfish, king mackerel, tilefish)", "reason": "mercury can affect fetal nervous system development"},
+    {"item": "Unwashed produce and raw sprouts", "reason": "risk of bacterial contamination"},
+    {"item": "Excess caffeine (commonly capped around 200mg/day)", "reason": "high intake linked to increased risk in some studies"},
+    {"item": "Certain herbal teas/supplements without a provider's approval", "reason": "safety in pregnancy often untested"}
+  ],
+
+  "weeks": [
+    {"week": 1, "trimester": 1, "sizeComparison": "n/a (cycle tracking phase; conception hasn't occurred yet)", "milestones": ["Dated from the last menstrual period; the body is preparing for ovulation."]},
+    {"week": 2, "trimester": 1, "sizeComparison": "n/a", "milestones": ["Ovulation typically occurs around this week; this is the usual conception window."]},
+    {"week": 3, "trimester": 1, "sizeComparison": "poppy seed", "milestones": ["Fertilization typically occurs; the resulting cells begin rapidly dividing into a blastocyst."]},
+    {"week": 4, "trimester": 1, "sizeComparison": "poppy seed", "milestones": ["Implantation in the uterine lining typically occurs; hCG begins rising, often enough to be detected by a home test around a missed period."]},
+    {"week": 5, "trimester": 1, "sizeComparison": "sesame seed", "milestones": ["The neural tube (future brain and spinal cord) begins forming."]},
+    {"week": 6, "trimester": 1, "sizeComparison": "lentil", "milestones": ["The heart begins beating and pumping blood; the neural tube closes; tiny limb buds appear."]},
+    {"week": 7, "trimester": 1, "sizeComparison": "blueberry", "milestones": ["Brain and facial features develop rapidly; arm and leg buds elongate."]},
+    {"week": 8, "trimester": 1, "sizeComparison": "raspberry", "milestones": ["Fingers and toes begin forming (webbed at first); all major organ systems have started developing."]},
+    {"week": 9, "trimester": 1, "sizeComparison": "grape", "milestones": ["Embryo is now typically referred to as a fetus; external sex organs begin differentiating (not yet visible on ultrasound); the tail structure disappears."]},
+    {"week": 10, "trimester": 1, "sizeComparison": "kumquat", "milestones": ["Vital organs are functioning; fingernails start to form."]},
+    {"week": 11, "trimester": 1, "sizeComparison": "fig", "milestones": ["The fetus may start small movements (not yet felt); tooth buds are forming."]},
+    {"week": 12, "trimester": 1, "sizeComparison": "lime", "milestones": ["Reflexes are developing; miscarriage risk drops significantly by the end of this week."]},
+    {"week": 13, "trimester": 1, "sizeComparison": "peach", "milestones": ["Vocal cords and fingerprints are forming; end of the first trimester."]},
+
+    {"week": 14, "trimester": 2, "sizeComparison": "lemon", "milestones": ["The fetus can squint and frown; genitals become more distinguishable."]},
+    {"week": 15, "trimester": 2, "sizeComparison": "apple", "milestones": ["Skeleton is hardening from cartilage to bone; can sense light through closed eyelids."]},
+    {"week": 16, "trimester": 2, "sizeComparison": "avocado", "milestones": ["Early movement ('quickening') may start to be felt, especially in later pregnancies; circulatory system is fully functioning."]},
+    {"week": 17, "trimester": 2, "sizeComparison": "turnip", "milestones": ["Skeleton continues hardening; fat stores begin forming."]},
+    {"week": 18, "trimester": 2, "sizeComparison": "bell pepper", "milestones": ["Ears reach their final position and the fetus may begin responding to sound; yawning and hiccups are sometimes visible on ultrasound."]},
+    {"week": 19, "trimester": 2, "sizeComparison": "mango", "milestones": ["A protective coating (vernix caseosa) begins covering the skin; senses of smell, taste, hearing, and sight are developing rapidly."]},
+    {"week": 20, "trimester": 2, "sizeComparison": "banana", "milestones": ["Halfway point; the anatomy ultrasound is typically done around now; fine hair (lanugo) covers the body."]},
+    {"week": 21, "trimester": 2, "sizeComparison": "carrot", "milestones": ["Movements typically become stronger and more noticeable; digestive system continues developing."]},
+    {"week": 22, "trimester": 2, "sizeComparison": "papaya", "milestones": ["Eyebrows and eyelids are fully formed; sense of touch is developing."]},
+    {"week": 23, "trimester": 2, "sizeComparison": "grapefruit", "milestones": ["Blood vessels in the lungs are developing in preparation for breathing; skin is still somewhat translucent."]},
+    {"week": 24, "trimester": 2, "sizeComparison": "corn (ear of)", "milestones": ["Often cited as a viability milestone with intensive medical care; the inner ear has developed, aiding balance."]},
+    {"week": 25, "trimester": 2, "sizeComparison": "cauliflower", "milestones": ["The fetus responds to touch and sound; hair color and texture are forming."]},
+    {"week": 26, "trimester": 2, "sizeComparison": "scallion", "milestones": ["Eyes begin to open; lungs are developing surfactant needed for breathing air."]},
+    {"week": 27, "trimester": 2, "sizeComparison": "cauliflower (head of)", "milestones": ["End of the second trimester; brain tissue develops rapidly; sleep-wake cycles begin emerging."]},
+
+    {"week": 28, "trimester": 3, "sizeComparison": "eggplant", "milestones": ["Third trimester begins; the fetus can blink and has eyelashes; rapid brain growth continues."]},
+    {"week": 29, "trimester": 3, "sizeComparison": "butternut squash", "milestones": ["Muscles and lungs continue maturing; kicks and movements typically feel stronger."]},
+    {"week": 30, "trimester": 3, "sizeComparison": "cabbage", "milestones": ["Brain is developing more grooves and surface area."]},
+    {"week": 31, "trimester": 3, "sizeComparison": "coconut", "milestones": ["The fetus can turn its head side to side; all five senses are functioning."]},
+    {"week": 32, "trimester": 3, "sizeComparison": "jicama", "milestones": ["Practice breathing movements occur; bones are fully formed but still soft and flexible."]},
+    {"week": 33, "trimester": 3, "sizeComparison": "pineapple", "milestones": ["The immune system is developing with antibodies passed from the mother."]},
+    {"week": 34, "trimester": 3, "sizeComparison": "cantaloupe", "milestones": ["Central nervous system and lungs continue maturing; fingernails reach the fingertips."]},
+    {"week": 35, "trimester": 3, "sizeComparison": "honeydew melon", "milestones": ["Kidneys are fully developed; most structural development is complete, with weight gain being the main focus from here."]},
+    {"week": 36, "trimester": 3, "sizeComparison": "romaine lettuce (head of)", "milestones": ["The protective vernix and lanugo begin shedding; the head may start engaging in the pelvis."]},
+    {"week": 37, "trimester": 3, "sizeComparison": "swiss chard (bunch of)", "milestones": ["Considered 'early term'; continued fat gain supports temperature regulation after birth."]},
+    {"week": 38, "trimester": 3, "sizeComparison": "leek", "milestones": ["Organs are essentially mature and ready for birth; brain development continues rapidly."]},
+    {"week": 39, "trimester": 3, "sizeComparison": "mini watermelon", "milestones": ["Considered full term; lungs are among the last organs to fully mature."]},
+    {"week": 40, "trimester": 3, "sizeComparison": "small pumpkin", "milestones": ["Estimated due date; average size is roughly 7.5 lb / 51 cm, though the normal range varies widely."]}
+  ]
+}
