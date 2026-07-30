@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#6c63ff" />
+  <title>Cycle & Pregnancy Tracker</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Privacy-first · Offline-friendly · Local-only</p>
+        <h1>Cycle & Pregnancy Tracker</h1>
+        <p class="subtitle">A single-page educational tracker for menstrual cycle insights, pregnancy milestones, and daily journaling.</p>
+      </div>
+      <div class="topbar-actions">
+        <button id="exportBtn" class="ghost">Export JSON</button>
+        <label class="ghost file-btn">
+          Import JSON
+          <input id="importInput" type="file" accept="application/json" hidden />
+        </label>
+        <button id="resetBtn" class="danger">Delete all data</button>
+      </div>
+    </header>
+
+    <section class="banner" role="note" aria-label="Medical disclaimer">
+      This app provides general educational information, not medical advice. Always consult a healthcare provider for decisions about your health or pregnancy.
+    </section>
+
+    <main>
+      <section class="hero grid-2">
+        <article class="card accent">
+          <div class="card-head">
+            <h2>At a glance</h2>
+            <span id="modePill" class="pill">Cycle Tracking</span>
+          </div>
+          <div id="quickStats" class="stats"></div>
+          <div class="inline-actions">
+            <button data-mode="cycle" class="mode-btn active">Cycle tracking</button>
+            <button data-mode="pregnancy" class="mode-btn">Pregnancy tracking</button>
+          </div>
+        </article>
+        <article class="card">
+          <h2>Onboarding</h2>
+          <form id="profileForm" class="form-grid">
+            <label>
+              Last period start
+              <input id="lastPeriodStart" type="date" />
+            </label>
+            <label>
+              Average cycle length
+              <input id="cycleLengthAvg" type="number" min="20" max="45" step="1" />
+            </label>
+            <label>
+              Average period length
+              <input id="periodLengthAvg" type="number" min="2" max="10" step="1" />
+            </label>
+            <label>
+              Birth year (optional)
+              <input id="birthYear" type="number" min="1900" max="2100" step="1" />
+            </label>
+            <label>
+              Pregnancy LMP / conception date
+              <input id="pregnancyStartDate" type="date" />
+            </label>
+            <label>
+              Pregnancy start type
+              <select id="pregnancyStartType">
+                <option value="lmp">Last menstrual period</option>
+                <option value="conception">Conception date</option>
+              </select>
+            </label>
+            <div class="span-2">
+              <button class="primary" type="submit">Save profile</button>
+            </div>
+          </form>
+        </article>
+      </section>
+
+      <nav class="tabs" aria-label="Primary">
+        <button class="tab active" data-target="overview">Overview</button>
+        <button class="tab" data-target="cycle">Cycle</button>
+        <button class="tab" data-target="pregnancy">Pregnancy</button>
+        <button class="tab" data-target="journal">Journal</button>
+        <button class="tab" data-target="insights">Insights</button>
+        <button class="tab" data-target="settings">Settings</button>
+      </nav>
+
+      <section id="overview" class="panel active">
+        <div class="grid-2">
+          <article class="card">
+            <h2>Current cycle summary</h2>
+            <div id="cycleSummary" class="summary-list"></div>
+          </article>
+          <article class="card">
+            <h2>Current pregnancy summary</h2>
+            <div id="pregnancySummary" class="summary-list"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="cycle" class="panel">
+        <div class="grid-2">
+          <article class="card">
+            <div class="card-head">
+              <h2>Cycle phase insight</h2>
+              <span id="currentPhase" class="pill"></span>
+            </div>
+            <div id="cycleInsight" class="rich-text"></div>
+          </article>
+
+          <article class="card">
+            <h2>Log a period</h2>
+            <form id="cycleEntryForm" class="form-grid">
+              <label>
+                Start date
+                <input id="cycleStartDate" type="date" required />
+              </label>
+              <label>
+                End date
+                <input id="cycleEndDate" type="date" required />
+              </label>
+              <label>
+                Flow intensity
+                <select id="flowLevel">
+                  <option>light</option>
+                  <option selected>medium</option>
+                  <option>heavy</option>
+                </select>
+              </label>
+              <label>
+                Spotting
+                <select id="spotting">
+                  <option value="no">No</option>
+                  <option value="yes">Yes</option>
+                </select>
+              </label>
+              <div class="span-2">
+                <label>
+                  Notes
+                  <textarea id="cycleNotes" rows="3" placeholder="Optional notes about cramps, flow, or symptoms"></textarea>
+                </label>
+              </div>
+              <div class="span-2">
+                <button class="primary" type="submit">Add period entry</button>
+              </div>
+            </form>
+          </article>
+        </div>
+
+        <article class="card">
+          <h2>Period history</h2>
+          <div id="cycleEntries" class="stack"></div>
+        </article>
+      </section>
+
+      <section id="pregnancy" class="panel">
+        <div class="grid-2">
+          <article class="card">
+            <div class="card-head">
+              <h2>Due date and week</h2>
+              <span id="trimesterPill" class="pill"></span>
+            </div>
+            <div id="pregnancyInsight" class="rich-text"></div>
+            <div id="avoidList" class="chips"></div>
+          </article>
+          <article class="card">
+            <h2>Week browser</h2>
+            <div class="week-controls">
+              <input id="weekSearch" type="range" min="1" max="40" value="1" />
+              <div class="week-meta">
+                <span>Week <strong id="weekValue">1</strong></span>
+                <span id="weekRangeLabel"></span>
+              </div>
+            </div>
+            <div id="weekCard" class="week-card"></div>
+          </article>
+        </div>
+
+        <article class="card">
+          <h2>Trimester timeline</h2>
+          <div id="trimesterCards" class="grid-3"></div>
+        </article>
+      </section>
+
+      <section id="journal" class="panel">
+        <div class="grid-2">
+          <article class="card">
+            <h2>Daily check-in</h2>
+            <form id="journalForm" class="form-grid">
+              <label>
+                Date
+                <input id="journalDate" type="date" required />
+              </label>
+              <label>
+                Mood
+                <select id="moodTag">
+                  <option>calm</option>
+                  <option>energetic</option>
+                  <option>low</option>
+                  <option>weepy</option>
+                  <option>irritable</option>
+                  <option>anxious</option>
+                </select>
+              </label>
+              <label class="span-2">
+                Symptoms (comma separated)
+                <input id="symptoms" type="text" placeholder="cramps, bloating, headache" />
+              </label>
+              <label class="span-2">
+                Notes
+                <textarea id="journalNote" rows="4" placeholder="How are you feeling today?"></textarea>
+              </label>
+              <div class="span-2">
+                <button class="primary" type="submit">Save journal entry</button>
+              </div>
+            </form>
+          </article>
+
+          <article class="card">
+            <h2>Recent logs</h2>
+            <div id="journalList" class="stack"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="insights" class="panel">
+        <div class="grid-2">
+          <article class="card">
+            <h2>Cycle length trend</h2>
+            <div id="cycleTrend" class="bars"></div>
+          </article>
+          <article class="card">
+            <h2>Symptom and mood frequency</h2>
+            <div id="frequencyChart" class="bars"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="settings" class="panel">
+        <div class="grid-2">
+          <article class="card">
+            <h2>Settings</h2>
+            <form id="settingsForm" class="form-grid">
+              <label>
+                Units
+                <select id="units">
+                  <option value="metric">kg / cm</option>
+                  <option value="imperial">lb / in</option>
+                </select>
+              </label>
+              <label>
+                Theme
+                <select id="theme">
+                  <option value="system">System</option>
+                  <option value="light">Light</option>
+                  <option value="dark">Dark</option>
+                </select>
+              </label>
+              <label>
+                Default cycle length
+                <input id="defaultCycleLength" type="number" min="20" max="45" step="1" />
+              </label>
+              <label>
+                Default period length
+                <input id="defaultPeriodLength" type="number" min="2" max="10" step="1" />
+              </label>
+              <div class="span-2">
+                <button class="primary" type="submit">Save settings</button>
+              </div>
+            </form>
+          </article>
+          <article class="card">
+            <h2>Storage note</h2>
+            <p class="muted">Everything stays on this device in browser storage. Browser storage is not encrypted at rest by default, so local app-lock is a convenience feature rather than full device-level security.</p>
+            <p class="muted">The app uses the shipped reference data from the provided cycle and pregnancy datasets and can run as a static site on GitHub Pages.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js').catch(() => {}));
+    }
+  </script>
+</body>
+</html>
